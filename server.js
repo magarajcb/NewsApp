@@ -1,8 +1,5 @@
-const express=require('express')
-const app=express();
-app.get("/",(req,res)=>{
-    res.json("Server Started")
-})
+const app = require("./app")
+
 app.listen(3001,(error)=>{
     if(error){
         console.log("Failed to start the server")
