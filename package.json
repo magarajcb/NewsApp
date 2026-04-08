@@ -1,0 +1,28 @@
+{
+  "name": "newsapp",
+  "version": "1.0.0",
+  "description": "Fullstack backend",
+  "homepage": "https://github.com/magarajcb/NewsApp#readme",
+  "bugs": {
+    "url": "https://github.com/magarajcb/NewsApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magarajcb/NewsApp.git"
+  },
+  "license": "ISC",
+  "author": "C B Maharaj",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "all",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1",
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {}
+}
