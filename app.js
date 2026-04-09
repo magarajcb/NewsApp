@@ -6,5 +6,6 @@ const app=express();
 app.get("/",(req,res)=>{
     res.json("Server Started")
 })
+app.use(express.json())
 app.use("/auth",authRouter)
 module.exports=app;
