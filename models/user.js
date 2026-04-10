@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const userSchema=new mongoose.Schema({
-    name:String,
-    email:String,
-    password:String
+    "name":String,
+    "email":String,
+    "password":String
 },{timestamps:true})
-module.exports=mongoose.model("users",userSchema,"user")
+module.exports=mongoose.model("user",userSchema,"test")
