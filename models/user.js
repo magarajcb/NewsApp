@@ -4,4 +4,4 @@ const userSchema=new mongoose.Schema({
     "email":String,
     "password":String
 },{timestamps:true})
-module.exports=mongoose.model("user",userSchema,"test")
+module.exports=mongoose.model("User",userSchema,"test")
