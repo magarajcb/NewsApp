@@ -41,12 +41,39 @@ const isPassworValid=await bcrypt.compare(password,user[0].password)
 if(!isPassworValid){
    return res.status(400).json({message:"Wrong password"})
 }
-const token=jwt.sign({_id:user[0]._id},process.env.JWT_SECRET,{expiresIn:'1hr'});
-return res.status(200).json({message:"Login succesfull",token:token})
+const token=jwt.sign({id:user[0]._id},process.env.JWT_SECRET,{expiresIn:'1hr'});
+res.cookie('token',token,{
+    httpOnly:true,
+    secure:false,
+    sameSite:'strict'
+})
+return res.status(200).json({message:"Login succesfull"})
     }
     catch(error){
 console.log("Can't login")
     }
+},
+logOut:async (req,res)=>{
+    try{
+res.clearCookie('token')
+return res.status(200).json({message:'loggged out'})
+    }
+    catch(error)
+    {
+        res.status(500).json({message:'failed to logout'})
+    }
+},
+me:async (req,res)=>{
+    try{
+const userId=req.userId;
+const user=await User.findById(userId).select('-password -__v')
+return res.status(200).json({message:'User logged in',use:user})
+    }
+    catch(error)
+    {
+        res.status(500).json({message:"Token failed"})
+    }
 }
+
 }
 module.exports=authController;
