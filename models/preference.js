@@ -1,0 +1,30 @@
+const mongoose=require('mongoose')
+const prefernceSchema=new mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        unique:true,
+        required:true
+    },
+    categories:{
+        type:[string],
+        default:["general"]
+    },
+    frequency:{
+        type:string,
+        enum:["instant","daily"],
+        default:"instant"
+    },
+    realTimeEnabled:{
+        type:Boolean,
+        default:true
+    },
+    emailEnabled:{
+        type:Boolean,
+        default:true
+    },
+    country:{
+        type:string,
+        default:"in"
+    }
+},{timestamps:true})
