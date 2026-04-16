@@ -7,11 +7,11 @@ const prefernceSchema=new mongoose.Schema({
         required:true
     },
     categories:{
-        type:[string],
+        type:[String],
         default:["general"]
     },
     frequency:{
-        type:string,
+        type:String,
         enum:["instant","daily"],
         default:"instant"
     },
@@ -24,7 +24,8 @@ const prefernceSchema=new mongoose.Schema({
         default:true
     },
     country:{
-        type:string,
+        type:String,
         default:"in"
     }
 },{timestamps:true})
+module.exports=mongoose.model("Preference",prefernceSchema,"test1")
