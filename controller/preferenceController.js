@@ -8,6 +8,8 @@ const savePreference=async (req,res)=>{
             frequency,
             realTimeEnabled,
             emailEnabled,
+            keywords,
+            language,
             country
         }=req.body;
 const preference=await Prefernce.findOneAndUpdate({userId:req.user._id},
@@ -16,6 +18,8 @@ const preference=await Prefernce.findOneAndUpdate({userId:req.user._id},
         frequency,
         realTimeEnabled,
         emailEnabled,
+        keywords,
+        language,
         country
     },{
         ne:true,

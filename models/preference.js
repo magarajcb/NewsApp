@@ -23,9 +23,18 @@ const prefernceSchema=new mongoose.Schema({
         type:Boolean,
         default:true
     },
+    keywords:{
+        type:[String],
+        default:[]
+    },
+    language:{
+        type:String,
+        default:"en"
+    },
     country:{
         type:String,
         default:"in"
-    }
+    },
+    
 },{timestamps:true})
 module.exports=mongoose.model("Preference",prefernceSchema,"test1")
