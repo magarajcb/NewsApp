@@ -12,6 +12,10 @@ const savePreference=async (req,res)=>{
             language,
             country
         }=req.body;
+        if(!categories || categories.length===0){
+            res.status(400).json({message:"At least one categories must select"})
+
+        }
 const preference=await Prefernce.findOneAndUpdate({userId:req.user._id},
     {
         categories,
@@ -22,7 +26,7 @@ const preference=await Prefernce.findOneAndUpdate({userId:req.user._id},
         language,
         country
     },{
-        ne:true,
+        new:true,
         upsert:true
     }
 );

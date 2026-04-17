@@ -1,6 +1,8 @@
 const mongoose=require('mongoose')
-const app = require("./app")
+const app = require("./app");
+const { startNewsAlerts } = require('./utils/cronJobs');
 require('dotenv').config();
+
 mongoose
 .connect(process.env.MONGODB_URI)
 .then(()=>{
@@ -16,4 +18,5 @@ app.listen(3001,(error)=>{
         return
     }
     console.log("Server started suceesfully")
+    startNewsAlerts()
 })

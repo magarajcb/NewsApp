@@ -10,9 +10,13 @@ const response=await axios.get(`https://gnews.io/api/v4/top-headlines`,{
         max:10,
         apikey:process.env.NEWS_API_KEY
     }
+
 });
+
 return response.data.articles;
+
 }
+
 catch(error){
   console.log(error.message);
   throw new Error("Error fetching news")

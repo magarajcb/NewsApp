@@ -11,6 +11,6 @@ app.get("/",(req,res)=>{
 app.use(cookieParser())
 app.use(express.json())
 app.use("/auth",authRouter)
-app.use("/prefernces",prefereneRouter)
+app.use("/preferences",prefereneRouter)
 app.use("/api",newsRouter)
 module.exports=app;
