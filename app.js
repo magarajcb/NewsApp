@@ -3,6 +3,7 @@ const cookieParser=require('cookie-parser')
 const authRouter = require('./routes/authRoutes');
 const prefereneRouter = require('./routes/preferenceRoutes');
 const newsRouter = require('./routes/newsRoutes');
+const notificationRouter = require('./routes/notificationRoutes');
 const app=express();
 
 app.get("/",(req,res)=>{
@@ -13,4 +14,5 @@ app.use(express.json())
 app.use("/auth",authRouter)
 app.use("/preferences",prefereneRouter)
 app.use("/api",newsRouter)
+app.use("/api/notification",notificationRouter)
 module.exports=app;
