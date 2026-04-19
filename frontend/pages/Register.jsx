@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import API from "../services/api";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const Register=()=> {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,7 +11,7 @@ const Register=()=> {
     confirmPassword: "",
   });
 
-
+const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,13 +20,32 @@ const Register=()=> {
   };
 
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    console.log(formData);
+  if (formData.password !== formData.confirmPassword) {
+    return toast.error("Passwords do not match");
+  }
 
+  try {
+    const response = await API.post("/register", {
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+    });
 
-  };
+    toast.success(response.data.message);
+
+    navigate("/login");
+
+  } catch (error) {
+    console.log(error);
+
+    toast.error(
+      error.response?.data?.message || "Registration failed"
+    );
+  }
+};
 
   return (
     <div className="min-h-screen grid grid-cols-2">
