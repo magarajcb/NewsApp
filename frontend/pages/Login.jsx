@@ -34,7 +34,7 @@ const Login=()=> {
       <div className="bg-white flex flex-col justify-center px-24">
 
         <h1 className="text-4xl font-bold mb-16">
-          <span className="text-violet-600">■</span> TheCubeFactory
+          <span className="text-violet-600">■</span> CB's News Alert App
         </h1>
 
         
@@ -110,14 +110,8 @@ const Login=()=> {
             Sign in
           </button>
 
-          {/* Google Button */}
-          <button
-            type="button"
-            className="w-full border py-4 rounded-lg flex items-center justify-center gap-3 text-lg font-medium"
-          >
-            <FaGoogle />
-            Sign in with Google
-          </button>
+          
+         
 
         </form>
 
